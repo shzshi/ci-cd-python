@@ -47,7 +47,8 @@ jobs:
         with:
           host: ${{ secrets.EC2_HOST }} 
           username: ${{ secrets.EC2_USERNAME }} 
-          key: ${{ secrets.EC2_SSH_KEY }}  
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22  
           script: |
             docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/my-flask-app:latest
             docker stop my-flask-app || true # In case the container doesn't exist yet
